@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding-top: calc(var(--header-height) + var(--space-8));">
+    <div class="container" style="max-width: 720px;">
+      <!-- Role Selection Step -->
+      <div id="role-select-section" class="card" style="text-align: center; margin-bottom: var(--space-8);">
+        <h1 style="font-size: var(--font-size-2xl); font-weight: 800; margin-bottom: var(--space-2);">Create Your Account</h1>
+        <p style="color: var(--color-text-muted); font-size: var(--font-size-sm); margin-bottom: var(--space-6);">
+          Please select your account type to proceed with registration
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);">
+          <div id="select-student-card" class="card card-hover" style="cursor: pointer; border: 2px solid var(--color-border); text-align: center; padding: var(--space-6);">
+            <div style="width: 56px; height: 56px; border-radius: var(--radius-xl); background: var(--color-primary-soft); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-3);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700;">Student</h3>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-top: 4px;">Currently studying at UIU</p>
+          </div>
+
+          <div id="select-alumni-card" class="card card-hover" style="cursor: pointer; border: 2px solid var(--color-border); text-align: center; padding: var(--space-6);">
+            <div style="width: 56px; height: 56px; border-radius: var(--radius-xl); background: var(--color-primary-soft); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-3);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v16"></path></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700;">Alumni</h3>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-top: 4px;">Graduated from UIU</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Form (hidden by default) -->
+      <div id="register-form-section" class="card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-4);">
+          <div>
+            <h2 id="form-role-title" style="font-size: var(--font-size-xl); font-weight: 700;">Alumni Registration</h2>
+            <p style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Fill in your credentials to submit your registration</p>
+          </div>
+          <button id="change-role-btn" class="btn btn-ghost btn-sm">Change Role</button>
+        </div>
+
+        <div id="register-alert" class="toast toast-error" style="display: none; margin-bottom: var(--space-4); width: 100%; box-sizing: border-box;"></div>
+
+        <form id="register-form">
+          <!-- Section 1: Account Information -->
+          <h4 style="font-size: var(--font-size-base); color: var(--color-primary); margin-bottom: var(--space-4);">1. Account Credentials</h4>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label" for="reg-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="reg-name" class="form-control" placeholder="e.g. Ahmed Hassan" required>
+              <div id="err-name" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="reg-email" class="form-control" placeholder="e.g. ahmed@uiu.ac.bd" required>
+              <div id="err-email" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Phone Number</label>
+              <input type="tel" id="reg-phone" class="form-control" placeholder="+880 1700000000">
+              <div id="err-phone" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password <span class="required">*</span></label>
+              <input type="password" id="reg-password" class="form-control" placeholder="••••••••" required>
+              <div id="err-password" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password">Confirm Password <span class="required">*</span></label>
+              <input type="password" id="reg-confirm-password" class="form-control" placeholder="••••••••" required>
+              <div id="err-confirmPassword" class="invalid-feedback"></div>
+            </div>
+          </div>
+
+          <!-- Section 2: Academic Details -->
+          <h4 style="font-size: var(--font-size-base); color: var(--color-primary); margin-top: var(--space-4); margin-bottom: var(--space-4);">2. Academic Background</h4>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <div class="form-group">
+              <label class="form-label" for="reg-studentid">Student ID / Alumni ID <span class="required">*</span></label>
+              <input type="text" id="reg-studentid" class="form-control" placeholder="011171001" required>
+              <div id="err-studentId" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-department">Department <span class="required">*</span></label>
+              <select id="reg-department" class="form-control" required>
+                <option value="CSE">Computer Science & Engineering (CSE)</option>
+                <option value="EEE">Electrical & Electronic Engineering (EEE)</option>
+                <option value="BBA">School of Business & Economics (BBA)</option>
+                <option value="Civil">Civil Engineering</option>
+              </select>
+              <div id="err-department" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-program">Program <span class="required">*</span></label>
+              <input type="text" id="reg-program" class="form-control" placeholder="BSc in CSE" required>
+              <div id="err-program" class="invalid-feedback"></div>
+            </div>
+
+            <!-- Alumni Specific -->
+            <div class="form-group alumni-only-field">
+              <label class="form-label" for="reg-gradyear">Graduation Year / Batch</label>
+              <input type="text" id="reg-gradyear" class="form-control" placeholder="e.g. 2021">
+              <div id="err-graduationYear" class="invalid-feedback"></div>
+            </div>
+
+            <!-- Student Specific -->
+            <div class="form-group student-only-field" style="display: none;">
+              <label class="form-label" for="reg-semester">Current Trimester/Semester</label>
+              <input type="text" id="reg-semester" class="form-control" placeholder="e.g. 9th Trimester">
+              <div id="err-currentSemester" class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group student-only-field" style="display: none;">
+              <label class="form-label" for="reg-expectedgrad">Expected Graduation Year</label>
+              <input type="text" id="reg-expectedgrad" class="form-control" placeholder="e.g. 2026">
+              <div id="err-expectedGraduation" class="invalid-feedback"></div>
+            </div>
+          </div>
+
+          <!-- Section 3: Professional Info (Alumni Optional) -->
+          <div class="alumni-only-field">
+            <h4 style="font-size: var(--font-size-base); color: var(--color-primary); margin-top: var(--space-4); margin-bottom: var(--space-4);">3. Professional Details (Optional)</h4>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+              <div class="form-group">
+                <label class="form-label" for="reg-company">Current Company</label>
+                <input type="text" id="reg-company" class="form-control" placeholder="TechCorp Solutions">
+                <div id="err-company" class="invalid-feedback"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-jobtitle">Job Title</label>
+                <input type="text" id="reg-jobtitle" class="form-control" placeholder="Software Engineer">
+                <div id="err-jobTitle" class="invalid-feedback"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-linkedin">LinkedIn Profile URL</label>
+                <input type="url" id="reg-linkedin" class="form-control" placeholder="https://linkedin.com/in/username">
+                <div id="err-linkedin" class="invalid-feedback"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-city">Current City</label>
+                <input type="text" id="reg-city" class="form-control" placeholder="Dhaka, Bangladesh">
+                <div id="err-city" class="invalid-feedback"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="form-group" style="margin-top: var(--space-6);">
+            <label class="checkbox-group">
+              <input type="checkbox" id="reg-terms" required>
+              <span style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+                I agree to the Terms of Service and Privacy Policy of UIU Alumni Portal.
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-4);">
+            Submit Registration
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/register.js"></script>
+</body>
+</html>

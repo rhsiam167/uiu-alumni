@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentorship & Alumni Network - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%); padding: var(--space-6) 0 var(--space-8); border-bottom: 1px solid rgba(255, 87, 34, 0.15);">
+      <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-8); align-items: center;">
+        <div>
+          <span class="badge badge-alumni" style="margin-bottom: var(--space-4);">UIU Alumni Mentorship Program</span>
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; color: var(--color-text-main); margin-bottom: var(--space-4); line-height: 1.15;">
+            Find Your Mentor, <br><span class="highlight-underline">Shape Your Future</span>
+          </h1>
+          <p style="font-size: var(--font-size-base); color: var(--color-text-muted); margin-bottom: var(--space-6); line-height: 1.6;">
+            Connect 1-on-1 with experienced UIU graduates across top technology, finance, and engineering firms for career guidance.
+          </p>
+
+          <!-- Search Bar & Action -->
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-4);">
+            <div style="position: relative; flex: 1; min-width: 260px;">
+              <input type="text" id="hero-mentor-search" class="form-control" placeholder="Search by name, field, skill or company..." style="border-radius: var(--radius-full); padding: 0.75rem 1rem 0.75rem 2.8rem; background: #FFFFFF;">
+              <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--color-text-light); pointer-events: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+              </span>
+            </div>
+            <button id="hero-search-btn" class="btn btn-primary btn-lg" style="border-radius: var(--radius-full);">Find Mentors</button>
+            <div id="hero-secondary-btn-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Right Side Pure CSS/SVG Illustration Composition -->
+        <div style="display: flex; justify-content: center; position: relative;" class="hide-on-mobile">
+          <div style="position: relative; width: 300px; height: 260px;">
+            <div style="position: absolute; top: 0; right: 20px; width: 180px; height: 140px; background: #FFFFFF; border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); padding: var(--space-4); border: 1px solid rgba(255,87,34,0.15); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-primary-soft); color: var(--color-primary); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div style="font-weight: 800; font-size: 14px; color: var(--color-text-main);">1-on-1 Guidance</div>
+              <div style="font-size: 11px; color: var(--color-text-muted);">UIU Alumni Network</div>
+            </div>
+
+            <div style="position: absolute; bottom: 10px; left: 10px; width: 200px; height: 130px; background: linear-gradient(135deg, #FF5722 0%, #FA4B2A 100%); color: #FFFFFF; border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); padding: var(--space-4); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.2); color: #FFFFFF; display: flex; align-items: center; justify-content: center; margin-bottom: 6px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div style="font-weight: 800; font-size: 13px;">Direct Chat</div>
+              <div style="font-size: 11px; opacity: 0.9;">Career Advice & Feedback</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logged-in User Dashboard Cards Section -->
+    <div id="user-mentorship-section" class="container" style="display: none; padding-top: var(--space-8); padding-bottom: var(--space-4);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);" class="layout-two-col">
+        <!-- Left: Requests Panel -->
+        <div class="card" style="background: #FFFFFF; border-radius: var(--radius-xl);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <h3 style="font-size: var(--font-size-lg); font-weight: 800; color: var(--color-text-main);" id="requests-panel-title">Mentorship Requests</h3>
+            <span class="badge badge-alumni" id="requests-count-badge">0 Pending</span>
+          </div>
+          <div id="mentorship-requests-panel">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+        <!-- Right: Active Mentorships & How it Works -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <div class="card" style="background: #FFFFFF; border-radius: var(--radius-xl);">
+            <h3 style="font-size: var(--font-size-base); font-weight: 800; color: var(--color-text-main); margin-bottom: var(--space-3);">My Active Mentorships</h3>
+            <div id="active-mentorships-panel">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+
+          <div class="card" style="background: #FFFFFF; border-radius: var(--radius-xl);">
+            <h3 style="font-size: var(--font-size-base); font-weight: 800; color: var(--color-text-main); margin-bottom: var(--space-4);">How It Works</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-3); font-size: var(--font-size-xs);">
+              <div style="display: flex; align-items: center; gap: var(--space-3);">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary-soft); color: var(--color-primary); font-weight: 800; display: flex; align-items: center; justify-content: center;">1</span>
+                <div><strong>Find a match:</strong> Filter mentors by department or tech stack.</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-3);">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary-soft); color: var(--color-primary); font-weight: 800; display: flex; align-items: center; justify-content: center;">2</span>
+                <div><strong>Send a request:</strong> Select a topic and brief objective.</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-3);">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary-soft); color: var(--color-primary); font-weight: 800; display: flex; align-items: center; justify-content: center;">3</span>
+                <div><strong>Start learning:</strong> Once accepted, chat directly 1-on-1.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mentor Directory Section -->
+    <div class="container" style="padding-top: var(--space-8); padding-bottom: var(--space-12);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-6);">
+        <div>
+          <h2 class="section-title">Recommended Mentors</h2>
+          <p class="section-subtitle">UIU graduates ready to help you navigate your career path.</p>
+        </div>
+      </div>
+
+      <!-- Department Tabs -->
+      <div class="tabs" id="dept-tabs-container" style="margin-bottom: var(--space-6);">
+        <button class="tab-item active" data-dept="">All Mentors</button>
+        <button class="tab-item" data-dept="CSE">CSE</button>
+        <button class="tab-item" data-dept="EEE">EEE</button>
+        <button class="tab-item" data-dept="BBA">BBA</option>
+        <button class="tab-item" data-dept="Civil">Civil</button>
+      </div>
+
+      <!-- Result Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+        <div style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+          Showing <strong id="mentors-count-num" style="color: var(--color-primary);">0</strong> Available Mentors
+        </div>
+      </div>
+
+      <!-- Mentor Cards Grid (3 Columns) -->
+      <div id="mentors-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/mentorship.js"></script>
+</body>
+</html>

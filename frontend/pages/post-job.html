@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container" style="max-width: 720px;">
+    <div style="margin-bottom: var(--space-4);">
+      <a href="jobs.html" class="btn btn-ghost btn-sm">← Back to Jobs</a>
+    </div>
+
+    <div class="card">
+      <div style="margin-bottom: var(--space-6);">
+        <h1 style="font-size: var(--font-size-2xl); font-weight: 800;">Post a Career Opportunity</h1>
+        <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+          Share job or internship openings with UIU students and fellow alumni. Posted jobs require admin approval before becoming public.
+        </p>
+      </div>
+
+      <form id="post-job-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Job Title <span class="required">*</span></label>
+            <input type="text" id="pj-title" class="form-control" placeholder="e.g. Junior Frontend Developer" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Company Name <span class="required">*</span></label>
+            <input type="text" id="pj-company" class="form-control" placeholder="e.g. TechCorp Solutions" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Location <span class="required">*</span></label>
+            <input type="text" id="pj-location" class="form-control" placeholder="e.g. Dhaka (Hybrid) / Remote" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Employment Type <span class="required">*</span></label>
+            <select id="pj-type" class="form-control" required>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Internship">Internship</option>
+              <option value="Remote">Remote</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Recruiter Email <span class="required">*</span></label>
+            <input type="email" id="pj-email" class="form-control" placeholder="recruiter@company.com" required>
+            <div class="form-hint">Applications and candidate CVs will be forwarded here.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Application Deadline <span class="required">*</span></label>
+            <input type="date" id="pj-deadline" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Estimated Salary / Stipend</label>
+            <input type="text" id="pj-salary" class="form-control" placeholder="e.g. 45,000 - 60,000 BDT">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Job Description <span class="required">*</span></label>
+            <textarea id="pj-description" class="form-control" rows="5" placeholder="Detailed description of responsibilities and role..." required></textarea>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Requirements <span class="required">*</span></label>
+            <textarea id="pj-requirements" class="form-control" rows="4" placeholder="Required skills, experience level, educational background..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="pj-submit-btn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-4);">
+          Submit for Review
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/post-job.js"></script>
+</body>
+</html>

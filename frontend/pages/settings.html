@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container" style="max-width: 960px;">
+    <h1 style="font-size: var(--font-size-2xl); font-weight: 800; margin-bottom: var(--space-6);">Account Settings</h1>
+
+    <div style="display: grid; grid-template-columns: 240px 1fr; gap: var(--space-8);">
+      <!-- Side Navigation Tabs -->
+      <div class="card" style="padding: var(--space-3); height: fit-content;">
+        <div style="display: flex; flex-direction: column; gap: var(--space-1);">
+          <button class="settings-tab-btn active" data-tab="personal">Personal Info</button>
+          <button class="settings-tab-btn" data-tab="academic">Academic Info</button>
+          <button class="settings-tab-btn" data-tab="career">Career Timeline</button>
+          <button class="settings-tab-btn" data-tab="links">Portfolio & Links</button>
+          <button id="mentorship-settings-tab-btn" class="settings-tab-btn" data-tab="mentorship">Mentorship</button>
+          <button class="settings-tab-btn" data-tab="password">Change Password</button>
+        </div>
+      </div>
+
+      <!-- Tab Content Cards -->
+      <div class="card">
+        <!-- 1. Personal Info -->
+        <div id="set-tab-personal" class="settings-panel">
+          <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);">Personal Information</h3>
+          <form id="form-personal">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" id="set-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" id="set-phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Current City</label>
+              <input type="text" id="set-city" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Short Bio</label>
+              <textarea id="set-bio" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Personal Info</button>
+          </form>
+        </div>
+
+        <!-- 2. Academic Info -->
+        <div id="set-tab-academic" class="settings-panel" style="display: none;">
+          <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);">Academic Profile</h3>
+          <div class="form-group">
+            <label class="form-label">Student ID (Read-only)</label>
+            <input type="text" id="set-studentid" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Department</label>
+            <input type="text" id="set-dept" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Program</label>
+            <input type="text" id="set-program" class="form-control" readonly>
+          </div>
+        </div>
+
+        <!-- 3. Career Timeline -->
+        <div id="set-tab-career" class="settings-panel" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700;">Career & Academic Timeline</h3>
+            <button id="add-timeline-entry-btn" class="btn btn-primary btn-sm">+ Add Entry</button>
+          </div>
+          <div id="settings-timeline-list">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+        <!-- 4. Links -->
+        <div id="set-tab-links" class="settings-panel" style="display: none;">
+          <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);">Portfolio & Social Links</h3>
+          <form id="form-links">
+            <div class="form-group">
+              <label class="form-label">LinkedIn URL</label>
+              <input type="url" id="set-linkedin" class="form-control" placeholder="https://linkedin.com/in/username">
+            </div>
+            <div class="form-group">
+              <label class="form-label">GitHub URL</label>
+              <input type="url" id="set-github" class="form-control" placeholder="https://github.com/username">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Personal Portfolio Website</label>
+              <input type="url" id="set-portfolio" class="form-control" placeholder="https://portfolio.dev">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Links</button>
+          </form>
+        </div>
+
+        <!-- 5. Mentorship (Alumni Only) -->
+        <div id="set-tab-mentorship" class="settings-panel" style="display: none;">
+          <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);">Mentorship Settings</h3>
+          <form id="form-mentorship">
+            <div class="form-group">
+              <label class="checkbox-group">
+                <input type="checkbox" id="set-willing-mentor">
+                <span style="font-weight: 600;">Willing to mentor UIU students & alumni</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mentor Expertise Tags (comma separated)</label>
+              <input type="text" id="set-expertise" class="form-control" placeholder="Software Engineering, Interview Prep, System Design">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Mentorship Settings</button>
+          </form>
+        </div>
+
+        <!-- 6. Change Password -->
+        <div id="set-tab-password" class="settings-panel" style="display: none;">
+          <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-4);">Change Password</h3>
+          <form id="form-password">
+            <div class="form-group">
+              <label class="form-label">Current Password</label>
+              <input type="password" id="set-curr-pass" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">New Password</label>
+              <input type="password" id="set-new-pass" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Confirm New Password</label>
+              <input type="password" id="set-confirm-new-pass" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Password</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .settings-tab-btn {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      background: none;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .settings-tab-btn:hover {
+      background-color: var(--color-bg-subtle);
+      color: var(--color-primary);
+    }
+    .settings-tab-btn.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+  </style>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/settings.js"></script>
+</body>
+</html>

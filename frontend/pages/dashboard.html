@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container">
+    <!-- Header Profile Summary Card -->
+    <div class="card" style="margin-bottom: var(--space-8);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+        <div class="avatar-info">
+          <div id="user-avatar-badge" class="avatar avatar-xl">UI</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <h1 id="user-display-name" style="font-size: var(--font-size-2xl); font-weight: 800;">User Name</h1>
+              <span id="user-role-badge" class="badge badge-alumni">Role</span>
+            </div>
+            <p id="user-sub-info" style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 2px;">Department · Info</p>
+          </div>
+        </div>
+
+        <!-- Alumni Mentor Toggle (Alumni only) -->
+        <div id="alumni-mentor-toggle-wrapper" style="display: none; background: var(--color-bg-subtle); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--color-border-light); align-items: center; gap: var(--space-4);">
+          <div>
+            <div style="font-size: var(--font-size-sm); font-weight: 700;">Willing to mentor?</div>
+            <div style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Help students grow</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="mentor-toggle-input">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Action Cards Grid -->
+    <div id="quick-actions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-8);">
+      <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Main Dashboard Grid (2 Columns: Left Main, Right Sidebar) -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-8);">
+      
+      <!-- Left Main Column -->
+      <div style="display: flex; flex-direction: column; gap: var(--space-8);">
+        
+        <!-- Section 1: Mentorship Requests -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title" id="mentorship-section-title">Mentorship Requests</h3>
+            <a href="mentorship.html" class="btn btn-ghost btn-sm" style="color: var(--color-primary);">View All →</a>
+          </div>
+          <div id="dashboard-mentorship-list">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Career Timeline / Applications -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title" id="secondary-section-title">My Career Timeline</h3>
+            <a href="settings.html" class="btn btn-ghost btn-sm" style="color: var(--color-primary);">Update Career</a>
+          </div>
+          <div id="dashboard-secondary-content">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar Column -->
+      <div style="display: flex; flex-direction: column; gap: var(--space-8);">
+        
+        <!-- Recent Messages Preview -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Recent Messages</h3>
+            <a href="chat.html" class="btn btn-ghost btn-sm" style="color: var(--color-primary);">Chat →</a>
+          </div>
+          <div id="dashboard-messages-list">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+        <!-- Upcoming Registered Events -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">My Registered Events</h3>
+            <a href="events.html" class="btn btn-ghost btn-sm" style="color: var(--color-primary);">Events →</a>
+          </div>
+          <div id="dashboard-events-list">
+            <div class="loading-spinner"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/dashboard.js"></script>
+</body>
+</html>
