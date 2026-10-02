@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Components Showcase - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container">
+    <div style="margin-bottom: var(--space-8);">
+      <h1>UIU Alumni Portal — Design System Showcase</h1>
+      <p>Component library, typography, tokens, buttons, forms, badges, modals, toasts, and cards.</p>
+    </div>
+
+    <!-- Buttons Section -->
+    <section class="card" style="margin-bottom: var(--space-8);">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">1. Buttons</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+        <button class="btn btn-primary">Primary Button</button>
+        <button class="btn btn-secondary">Secondary Button</button>
+        <button class="btn btn-outline">Outline Button</button>
+        <button class="btn btn-danger">Danger Button</button>
+        <button class="btn btn-success">Success Button</button>
+        <button class="btn btn-ghost">Ghost Button</button>
+        <button class="btn btn-primary btn-sm">Small Primary</button>
+        <button class="btn btn-primary btn-lg">Large Primary</button>
+        <button class="btn btn-primary disabled" disabled>Disabled State</button>
+      </div>
+    </section>
+
+    <!-- Badges & Status Pills -->
+    <section class="card" style="margin-bottom: var(--space-8);">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">2. Status Badges & Roles</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+        <span class="badge badge-pending">Pending Approval</span>
+        <span class="badge badge-approved">Approved</span>
+        <span class="badge badge-rejected">Rejected</span>
+        <span class="badge badge-accepted">Accepted</span>
+        <span class="badge badge-declined">Declined</span>
+        <span class="badge badge-open">Open</span>
+        <span class="badge badge-closed">Closed</span>
+        <span class="badge badge-alumni">Alumni</span>
+        <span class="badge badge-student">Student</span>
+        <span class="badge badge-admin">Admin</span>
+      </div>
+    </section>
+
+    <!-- Form Inputs -->
+    <section class="card" style="margin-bottom: var(--space-8);">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">3. Form Controls & Inputs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-4);">
+        <div class="form-group">
+          <label class="form-label">Text Input <span class="required">*</span></label>
+          <input type="text" class="form-control" placeholder="Enter text...">
+          <div class="form-hint">Helper hint text goes here.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password Input</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="demo-pass" class="form-control" placeholder="••••••••">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Select Dropdown</label>
+          <select class="form-control">
+            <option>Computer Science & Engineering (CSE)</option>
+            <option>Electrical & Electronic Engineering (EEE)</option>
+            <option>School of Business & Economics (BBA)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Toggle Switch</label>
+          <label class="toggle-switch">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals & Toasts Demo -->
+    <section class="card" style="margin-bottom: var(--space-8);">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">4. Modals & Notifications</h2>
+      <div style="display: flex; gap: var(--space-3);">
+        <button id="demo-toast-btn" class="btn btn-secondary">Trigger Success Toast</button>
+        <button id="demo-modal-btn" class="btn btn-primary">Trigger Success Modal</button>
+      </div>
+    </section>
+
+    <!-- Cards Demo -->
+    <section class="card" style="margin-bottom: var(--space-8);">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">5. Sample Job & Mentor Cards</h2>
+      <div id="demo-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6);">
+        <!-- Populated via script -->
+      </div>
+    </section>
+
+    <!-- Timeline Demo -->
+    <section class="card">
+      <h2 class="card-title" style="margin-bottom: var(--space-4);">6. Career Timeline Component</h2>
+      <div id="demo-timeline-container"></div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module">
+    import { renderNavbar } from './js/components/navbar.js';
+    import { renderFooter } from './js/components/footer.js';
+    import { showToast } from './js/components/toast.js';
+    import { showSuccessModal } from './js/components/modal.js';
+    import { renderJobCard, renderMentorCard } from './js/components/cards.js';
+    import { renderTimeline } from './js/components/timeline.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNavbar('home');
+      renderFooter();
+
+      document.getElementById('demo-toast-btn').addEventListener('click', () => {
+        showToast('Operation completed successfully!', 'success');
+      });
+
+      document.getElementById('demo-modal-btn').addEventListener('click', () => {
+        showSuccessModal({
+          title: 'Registration Submitted',
+          message: 'Your registration request has been submitted successfully. An administrator will review your account details.',
+          buttonText: 'Back to Homepage'
+        });
+      });
+
+      const cardsGrid = document.getElementById('demo-cards-grid');
+      cardsGrid.innerHTML = `
+        ${renderJobCard({
+          id: '1',
+          title: 'Junior Frontend Developer',
+          company: 'TechCorp Solutions',
+          location: 'Dhaka (Hybrid)',
+          type: 'Full-time',
+          salary: '45,000 BDT',
+          description: 'Looking for a passionate JS developer to build responsive UI components.',
+          createdAt: new Date().toISOString()
+        })}
+        ${renderMentorCard({
+          id: '1',
+          name: 'Anik Rahman',
+          jobTitle: 'Software Engineer',
+          company: 'TechCorp Solutions',
+          department: 'CSE',
+          graduationYear: '2021',
+          mentorExpertise: ['Full Stack', 'System Design']
+        })}
+      `;
+
+      const timelineContainer = document.getElementById('demo-timeline-container');
+      timelineContainer.innerHTML = renderTimeline([
+        { title: 'Software Engineer', organization: 'TechCorp Solutions', startDate: '2021-06-01', endDate: 'Present', description: 'Building cloud infrastructure.' },
+        { title: 'BSc in Computer Science & Engineering', organization: 'United International University', startDate: '2017-01-01', endDate: '2021-05-01', description: 'Graduated with Magna Cum Laude.' }
+      ]);
+    });
+  </script>
+</body>
+</html>

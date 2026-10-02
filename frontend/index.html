@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UIU Alumni Portal - Where UIU Alumni Shape Tomorrow</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section style="background: radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.08) 0%, transparent 60%); padding: var(--space-6) 0 var(--space-8);">
+      <div class="container" style="text-align: center; max-width: 860px;">
+        <span class="badge badge-alumni" style="margin-bottom: var(--space-4); font-size: var(--font-size-xs);">United International University - Alumni Portal</span>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: var(--space-4); color: var(--color-text-main);">
+          Where UIU Alumni <br><span style="color: var(--color-primary); background: linear-gradient(135deg, #FF5722 0%, #FA4B2A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Shape Tomorrow</span>
+        </h1>
+        <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); margin-bottom: var(--space-8); line-height: 1.6;">
+          Join the thriving community of UIU graduates and current students. Expand your network, discover career opportunities, find mentors, and give back.
+        </p>
+        <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="pages/register.html" class="btn btn-primary btn-lg">Join the Network →</a>
+          <a href="pages/mentorship.html" class="btn btn-secondary btn-lg">Explore Mentors</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Stats Row -->
+    <section class="container" style="margin-bottom: var(--space-12);">
+      <div class="card" style="padding: var(--space-6);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-6); text-align: center;">
+          <div>
+            <div id="stat-alumni" class="stat-value">—</div>
+            <div class="stat-label">Alumni Members</div>
+          </div>
+          <div>
+            <div id="stat-students" class="stat-value">—</div>
+            <div class="stat-label">Current Students</div>
+          </div>
+          <div>
+            <div id="stat-jobs" class="stat-value">—</div>
+            <div class="stat-label">Active Job Posts</div>
+          </div>
+          <div>
+            <div id="stat-events" class="stat-value">—</div>
+            <div class="stat-label">Upcoming Events</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Cards Section (4 Features only) -->
+    <section class="container" style="margin-bottom: var(--space-12);">
+      <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+        <span class="badge badge-student" style="margin-bottom: var(--space-2);">Everything You Need</span>
+        <h2 class="section-title">Powerful Features for Alumni & Students</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="card card-hover" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div class="stat-icon" style="margin-bottom: var(--space-4);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-2);">Network & Mentorship</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+              Connect directly with UIU graduates across industries. Seek career guidance, resume feedback, and 1-on-1 advice.
+            </p>
+          </div>
+          <a href="pages/mentorship.html" style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); margin-top: var(--space-4); display: inline-block;">Learn more →</a>
+        </div>
+
+        <div class="card card-hover" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div class="stat-icon" style="margin-bottom: var(--space-4);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-2);">Jobs & Internships</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+              Access exclusive job listings posted directly by UIU alumni recruiters. Apply directly with your CV.
+            </p>
+          </div>
+          <a href="pages/jobs.html" style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); margin-top: var(--space-4); display: inline-block;">Browse opportunities →</a>
+        </div>
+
+        <div class="card card-hover" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div class="stat-icon" style="margin-bottom: var(--space-4);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-2);">Events & Reunions</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+              Attend exclusive alumni galas, tech career fairs, webinars, and batch reunions organized by UIU.
+            </p>
+          </div>
+          <a href="pages/events.html" style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); margin-top: var(--space-4); display: inline-block;">View events →</a>
+        </div>
+
+        <div class="card card-hover" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+          <div>
+            <div class="stat-icon" style="margin-bottom: var(--space-4);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9"></path></svg>
+            </div>
+            <h3 style="font-size: var(--font-size-lg); font-weight: 700; margin-bottom: var(--space-2);">Donate & Support</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+              Contribute to university development and student financial aid funds to empower the next generation.
+            </p>
+          </div>
+          <a href="pages/donate.html" style="font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); margin-top: var(--space-4); display: inline-block;">Contribute now →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="container" style="margin-bottom: var(--space-12);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-6);">
+        <div>
+          <span class="badge badge-alumni" style="margin-bottom: var(--space-2);">Upcoming Events</span>
+          <h2 class="section-title">Don't Miss Out</h2>
+        </div>
+        <a href="pages/events.html" class="btn btn-ghost" style="color: var(--color-primary);">View all events →</a>
+      </div>
+
+      <div id="landing-events-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 380px)); gap: var(--space-6);">
+        <div class="loading-spinner"></div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="container" style="margin-bottom: var(--space-12);">
+      <div class="card" style="background: var(--color-primary-gradient); color: #FFFFFF; text-align: center; padding: var(--space-12) var(--space-6);">
+        <h2 style="color: #FFFFFF; font-size: var(--font-size-3xl); margin-bottom: var(--space-3);">Ready to Join the Network?</h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: var(--font-size-base); max-width: 600px; margin: 0 auto var(--space-6);">
+          Connect with UIU alumni, access exclusive opportunities, and stay connected.
+        </p>
+        <a href="pages/register.html" class="btn btn-secondary btn-lg" style="color: var(--color-primary);">Get Started Free</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="js/pages/index.js"></script>
+</body>
+</html>
