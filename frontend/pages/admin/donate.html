@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate to UIU Funds - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + var(--space-8)); padding-bottom: var(--space-12);">
+    <!-- Header -->
+    <div style="text-align: center; max-width: 680px; margin: 0 auto var(--space-4);">
+      <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--color-text-main);">
+        <span style="color: var(--color-primary);">Donate</span> to UIU Funds
+      </h1>
+      <p style="font-size: var(--font-size-base); color: var(--color-text-muted); margin-top: var(--space-2);">
+        Support the next generation of students through scholarships, emergency funds, and campus development projects. Every contribution builds a stronger future for United International University.
+      </p>
+    </div>
+
+    <!-- 2-Column Section -->
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); align-items: start;" class="layout-two-col">
+      <!-- Left: Active Fundraising Drives -->
+      <div>
+        <div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-4);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.75"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9"></path></svg>
+          <h2 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--color-text-main);">Active Fundraising Drives</h2>
+        </div>
+
+        <div id="fund-drives-list" style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <!-- Top Featured Card (Horizontal layout like prototype) -->
+          <div class="card fund-drive-card" data-fund="General Fund" style="cursor: pointer; border: 2px solid var(--color-primary); background: #FFFFFF; position: relative; padding: var(--space-5);">
+            <div style="display: grid; grid-template-columns: 180px 1fr; gap: var(--space-5); align-items: center;">
+              <div style="height: 140px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #FF5722 0%, #FF8A65 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; text-align: center; padding: var(--space-3);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9"></path></svg>
+                <div style="font-size: var(--font-size-xs); font-weight: 700; margin-top: 6px; text-transform: uppercase;">UIU General Fund</div>
+              </div>
+              <div>
+                <span class="chip chip-primary" style="background: rgba(255,87,34,0.12); color: var(--color-primary); font-size: 11px; font-weight: 700; margin-bottom: 6px;">Featured Drive</span>
+                <h3 style="font-size: var(--font-size-lg); font-weight: 800; color: var(--color-text-main); margin-bottom: 4px;">UIU General Alumni Fund</h3>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-3); line-height: 1.4;">
+                  Supports university campus development, research labs, student clubs, and annual alumni activities.
+                </p>
+                <div style="display: flex; gap: var(--space-6); font-size: var(--font-size-xs); color: var(--color-text-main); font-weight: 600;">
+                  <div>Total Donated: <strong id="stat-general-total" style="color: var(--color-primary);">0 BDT</strong></div>
+                  <div>Donors: <strong id="stat-general-donors">0</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom 2-Column Grid (Scholarship & Emergency Funds) -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <!-- Scholarship Fund Card -->
+            <div class="card fund-drive-card" data-fund="Scholarship Fund" style="cursor: pointer; background: #FFFFFF; padding: var(--space-4); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="height: 100px; border-radius: var(--radius-md); background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF; margin-bottom: var(--space-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+                <h3 style="font-size: var(--font-size-base); font-weight: 700; color: var(--color-text-main); margin-bottom: 4px;">Student Scholarship Fund</h3>
+                <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: var(--space-3); line-height: 1.4;">
+                  Tuition assistance and merit scholarships for high-achieving students.
+                </p>
+              </div>
+              <div style="display: flex; gap: var(--space-4); font-size: var(--font-size-xs); color: var(--color-text-main); font-weight: 600; border-top: 1px solid var(--color-border-light); padding-top: var(--space-2);">
+                <div>Total Donated: <strong id="stat-scholarship-total" style="color: var(--color-primary);">0 BDT</strong></div>
+                <div>Donors: <strong id="stat-scholarship-donors">0</strong></div>
+              </div>
+            </div>
+
+            <!-- Emergency Fund Card -->
+            <div class="card fund-drive-card" data-fund="Emergency Fund" style="cursor: pointer; background: #FFFFFF; padding: var(--space-4); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="height: 100px; border-radius: var(--radius-md); background: linear-gradient(135deg, #059669 0%, #34D399 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF; margin-bottom: var(--space-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                </div>
+                <h3 style="font-size: var(--font-size-base); font-weight: 700; color: var(--color-text-main); margin-bottom: 4px;">Emergency Assistance</h3>
+                <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: var(--space-3); line-height: 1.4;">
+                  Rapid aid for students experiencing sudden medical or financial crises.
+                </p>
+              </div>
+              <div style="display: flex; gap: var(--space-4); font-size: var(--font-size-xs); color: var(--color-text-main); font-weight: 600; border-top: 1px solid var(--color-border-light); padding-top: var(--space-2);">
+                <div>Total Donated: <strong id="stat-emergency-total" style="color: var(--color-primary);">0 BDT</strong></div>
+                <div>Donors: <strong id="stat-emergency-donors">0</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Make a Contribution Card -->
+      <div>
+        <div class="card" style="border: 2px solid var(--color-primary-soft); background: #FFFFFF; border-radius: var(--radius-2xl); padding: var(--space-6);">
+          <h2 style="font-size: var(--font-size-xl); font-weight: 800; color: var(--color-text-main); margin-bottom: var(--space-4);">Make a Contribution</h2>
+
+          <form id="donate-form">
+            <!-- Step 1: Select Fund -->
+            <div class="form-group">
+              <label class="form-label">Step 1: Select Fund <span class="required">*</span></label>
+              <select id="donate-purpose" class="form-control" required>
+                <option value="General Fund">UIU General Alumni Fund</option>
+                <option value="Scholarship Fund">Student Scholarship Fund</option>
+                <option value="Emergency Fund">Emergency Student Assistance</option>
+              </select>
+            </div>
+
+            <!-- Step 2: Choose Amount -->
+            <div class="form-group" style="margin-top: var(--space-4);">
+              <label class="form-label">Step 2: Choose Amount (BDT) <span class="required">*</span></label>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-bottom: var(--space-3);" id="amount-pills-container">
+                <button type="button" class="btn btn-outline amount-pill" data-amount="500">500</button>
+                <button type="button" class="btn btn-outline amount-pill" data-amount="1000">1,000</button>
+                <button type="button" class="btn btn-outline amount-pill" data-amount="2500">2,500</button>
+                <button type="button" class="btn btn-outline amount-pill" data-amount="5000">5,000</button>
+                <button type="button" class="btn btn-outline amount-pill" data-amount="10000">10,000</button>
+                <button type="button" class="btn btn-outline amount-pill" data-amount="custom">Custom</button>
+              </div>
+
+              <div id="custom-amount-wrapper" style="display: none;">
+                <input type="number" id="donate-custom-amount" class="form-control" placeholder="Enter amount in BDT" min="10">
+              </div>
+            </div>
+
+            <!-- Step 3: Message & Anonymous -->
+            <div class="form-group" style="margin-top: var(--space-4);">
+              <label class="form-label">Step 3: Message & Privacy</label>
+              <textarea id="donate-message" class="form-control" rows="2" placeholder="Write a word of encouragement (optional)..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-group">
+                <input type="checkbox" id="donate-anonymous">
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Donate anonymously (hide my name from public donor records)</span>
+              </label>
+            </div>
+
+            <button type="submit" id="donate-submit-btn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-4); border-radius: var(--radius-full);">
+              Complete Donation
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Donation History -->
+    <div class="card" style="margin-top: var(--space-12); background: #FFFFFF; border-radius: var(--radius-xl);">
+      <h3 class="card-title" style="margin-bottom: var(--space-4);">My Contribution History</h3>
+      <div id="my-donations-list">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/donate.js"></script>
+</body>
+</html>

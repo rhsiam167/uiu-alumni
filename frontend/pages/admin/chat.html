@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direct Messages - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="page-chat">
+  <div id="navbar-container"></div>
+
+  <main class="chat-main-wrapper">
+    <div id="chat-app" class="chat-container">
+      
+      <!-- Left Sidebar -->
+      <div class="chat-sidebar">
+        <div class="chat-sidebar-header">
+          <h2 class="chat-sidebar-title">Messages</h2>
+          <input type="text" id="chat-search" class="form-control chat-sidebar-search" placeholder="Search contacts...">
+        </div>
+        <div id="conversations-list" class="chat-conversations-list">
+          <div class="loading-spinner"></div>
+        </div>
+      </div>
+
+      <!-- Right Thread Panel -->
+      <div class="chat-thread-panel">
+        
+        <!-- Header -->
+        <div id="chat-header" class="chat-header">
+          <div class="chat-header-user">
+            <button type="button" id="chat-back-btn" class="chat-back-btn" title="Back to conversations">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            
+            <a id="chat-header-profile-link" class="chat-header-profile-link" href="#" style="display: none;" title="View Profile">
+              <div id="chat-header-avatar" class="avatar avatar-sm">UI</div>
+              <div>
+                <div id="chat-header-title" class="chat-header-title">Select a conversation</div>
+                <div class="chat-header-subtitle">View Profile →</div>
+              </div>
+            </a>
+
+            <div id="chat-header-default-title" class="chat-header-title" style="color: var(--color-text-muted);">
+              Select a conversation
+            </div>
+          </div>
+
+          <div id="chat-header-actions" class="chat-header-menu-container" style="display: none;">
+            <button type="button" id="chat-header-menu-btn" class="chat-header-menu-btn" title="Chat Options">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+            </button>
+            <div id="chat-header-menu-dropdown" class="chat-header-dropdown" style="display: none;">
+              <button type="button" id="delete-conversation-btn" class="chat-header-dropdown-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                <span>Delete Chat</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="messages-container" class="chat-messages-area">
+          <div class="empty-state" style="margin: auto;">
+            <div class="empty-state-title">No conversation selected</div>
+            <p>Choose a contact from the left list to start messaging.</p>
+          </div>
+        </div>
+
+        <!-- Error Alert Bar -->
+        <div id="chat-error-banner" class="chat-error-banner" style="display: none;">
+          <span id="chat-error-message"></span>
+          <button type="button" id="close-error-btn" style="background:none; border:none; cursor:pointer; color:inherit; font-size:14px; font-weight:700;">✕</button>
+        </div>
+
+        <!-- Input Bar (Fixed, Always Visible) -->
+        <form id="chat-input-form" class="chat-input-bar">
+          <input type="text" id="chat-input-text" class="form-control chat-input-field" placeholder="Type a message..." disabled>
+          <button type="submit" id="chat-send-btn" class="btn btn-primary" style="border-radius: var(--radius-full); padding: 0.5rem 1.25rem;" disabled>Send</button>
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/chat.js?v=18"></script>
+</body>
+</html>

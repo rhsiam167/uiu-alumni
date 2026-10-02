@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Opportunities - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + var(--space-8)); padding-bottom: var(--space-12);">
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-4); margin-bottom: var(--space-8); flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 280px;">
+        <h1 class="section-title" style="font-size: var(--font-size-3xl);">Career <span class="highlight-underline">Opportunities</span></h1>
+        <p class="section-subtitle">Discover jobs and internships posted directly by UIU alumni. Leverage your community network to take the next step in your professional journey.</p>
+      </div>
+      <div id="post-job-btn-wrapper" style="display: none; align-self: flex-start;">
+        <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+          <button id="toggle-my-posts-btn" class="btn btn-outline btn-lg" style="border-radius: var(--radius-full); white-space: nowrap;">My Posts</button>
+          <a href="post-job.html" class="btn btn-primary btn-lg" style="border-radius: var(--radius-full); white-space: nowrap;">+ Post an Opportunity</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main 2-Column Layout -->
+    <div class="layout-sidebar-main">
+      <!-- Left Filter Card Sidebar -->
+      <aside class="card" style="padding: var(--space-6); background: #FFFFFF; border-radius: var(--radius-xl);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-3);">
+          <h3 style="font-size: var(--font-size-base); font-weight: 700; color: var(--color-text-main);">Filter Jobs</h3>
+          <button id="jobs-clear-all" class="btn btn-ghost btn-sm" style="color: var(--color-primary); padding: 0;">Clear all</button>
+        </div>
+
+        <form id="jobs-filter-form">
+          <!-- Keyword search -->
+          <div class="form-group">
+            <label class="form-label" for="jobs-search-input">Keywords</label>
+            <div style="position: relative;">
+              <input type="text" id="jobs-search-input" class="form-control" placeholder="Title, company, skill..." style="padding-left: 36px;">
+              <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--color-text-light); pointer-events: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Job Type Radios -->
+          <div class="form-group" style="margin-top: var(--space-6);">
+            <label class="form-label">Job Type</label>
+            <div class="filter-radio-group">
+              <label class="filter-radio-item">
+                <input type="radio" name="jobType" value="" checked>
+                <span>All Types</span>
+              </label>
+              <label class="filter-radio-item">
+                <input type="radio" name="jobType" value="Full-time">
+                <span>Full-time</span>
+              </label>
+              <label class="filter-radio-item">
+                <input type="radio" name="jobType" value="Part-time">
+                <span>Part-time</span>
+              </label>
+              <label class="filter-radio-item">
+                <input type="radio" name="jobType" value="Internship">
+                <span>Internship</span>
+              </label>
+              <label class="filter-radio-item">
+                <input type="radio" name="jobType" value="Contract">
+                <span>Contract</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Location input -->
+          <div class="form-group" style="margin-top: var(--space-6);">
+            <label class="form-label" for="jobs-location-input">Location</label>
+            <div style="position: relative;">
+              <input type="text" id="jobs-location-input" class="form-control" placeholder="Dhaka, Remote..." style="padding-left: 36px;">
+              <span style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--color-text-light); pointer-events: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+            </div>
+          </div>
+
+          <button type="button" id="jobs-apply-filters-btn" class="btn btn-primary" style="width: 100%; margin-top: var(--space-6); border-radius: var(--radius-full);">
+            Apply Filters
+          </button>
+        </form>
+      </aside>
+
+      <!-- Right Main Results Area -->
+      <section>
+        <!-- Result Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); background: #FFFFFF; padding: var(--space-4) var(--space-6); border-radius: var(--radius-lg); border: 1px solid var(--color-border-light);">
+          <div style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+            Showing <strong id="jobs-count-num" style="color: var(--color-primary); font-size: var(--font-size-base);">0</strong> Opportunities
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-2);">
+            <label for="jobs-sort-select" style="font-size: var(--font-size-xs); color: var(--color-text-muted); font-weight: 600;">Sort by:</label>
+            <select id="jobs-sort-select" class="form-control" style="width: auto; padding: 4px 8px; font-size: var(--font-size-xs);">
+              <option value="recent">Most Recent</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Jobs Grid -->
+        <div id="jobs-grid" style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Load More Button -->
+        <div id="jobs-load-more-wrapper" style="text-align: center; margin-top: var(--space-8); display: none;">
+          <button id="jobs-load-more-btn" class="btn btn-secondary btn-lg" style="border-radius: var(--radius-full); padding: 0.75rem 2.5rem;">Load More</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/jobs.js"></script>
+</body>
+</html>
