@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 200px);">
+    <div class="container" style="max-width: 440px;">
+      <div class="card">
+        <div style="text-align: center; margin-bottom: var(--space-6);">
+          <h1 style="font-size: var(--font-size-2xl); font-weight: 800; color: var(--color-text-main);">Welcome Back</h1>
+          <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 4px;">
+            Sign in to access your UIU Alumni Portal account
+          </p>
+        </div>
+
+        <div id="login-alert" class="toast toast-error" style="display: none; margin-bottom: var(--space-4); width: 100%; box-sizing: border-box;"></div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="login-email" class="form-control" placeholder="student@uiu.ac.bd / alumni@uiu.test" required>
+            <div id="email-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password <span class="required">*</span></label>
+            <div class="password-input-wrapper">
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+              <button type="button" id="toggle-password-btn" class="password-toggle-btn" aria-label="Toggle password visibility"></button>
+            </div>
+            <div id="password-error" class="invalid-feedback"></div>
+          </div>
+
+          <button type="submit" id="login-submit-btn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-4);">
+            Sign In
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: var(--space-6); font-size: var(--font-size-sm); color: var(--color-text-muted);">
+          Don't have an account? <a href="register.html" style="font-weight: 600;">Register here</a>
+        </div>
+
+        <div id="demo-credentials-box" style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-light); font-size: var(--font-size-xs); color: var(--color-text-muted);">
+          <strong>Test Credentials (Dev Mode):</strong><br>
+          • Alumni: <code>alumni@uiu.test</code> / <code>Test@1234</code><br>
+          • Student: <code>student@uiu.test</code> / <code>Test@1234</code><br>
+          • Admin: <code>admin@uiu.test</code> / <code>Test@1234</code>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - UIU Alumni Portal</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container" style="max-width: 860px;">
+    <!-- Profile Header Card -->
+    <div id="profile-main-card" class="card" style="margin-bottom: var(--space-8);">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Career Timeline Card -->
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom: var(--space-4);">Career & Academic Timeline</h3>
+      <div id="profile-timeline-container">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="../js/pages/profile.js"></script>
+</body>
+</html>
